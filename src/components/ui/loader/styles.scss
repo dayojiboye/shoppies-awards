@@ -1,0 +1,12 @@
+.app_loader {
+  display: inline-flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  > svg {
+    width: 150px;
+    height: 57.6px;
+  }
+}

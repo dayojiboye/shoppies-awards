@@ -1,0 +1,103 @@
+*,
+::before,
+::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: Gilroy Light;
+  src: url('../assets/fonts/Gilroy-Light 300.otf');
+}
+
+html {
+  -webkit-text-size-adjust: var(--full);
+  scroll-behavior: smooth;
+  font-family: Gilroy Light;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  width: var(--full);
+  height: var(--full);
+  background: var(--black);
+  color: var(--primary-color);
+  overflow-x: hidden;
+}
+
+html._fixed,
+body._fixed {
+  touch-action: none;
+  -webkit-overflow-scrolling: none;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+h1,
+h2,
+h3,
+p {
+  line-height: 1.6;
+  margin: 0;
+}
+
+p {
+  font-size: 1rem;
+
+  @media (min-width: 701px) {
+    font-size: 1.25rem;
+  }
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+button {
+  outline: none;
+  font: inherit;
+  color: inherit;
+}
+
+input {
+  -webkit-appearance: none;
+  appearance: none;
+  width: var(--full);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  outline: none;
+  color: inherit;
+  border: 1.5px solid var(--fade);
+  border-radius: var(--border-radius-mini);
+  outline-offset: -2px;
+
+  &:focus {
+    border: 1.5px solid var(--primary-color);
+    box-shadow: 0 0 0 5px var(--primary-color-lighter);
+  }
+}
+
+ul,
+li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+._max_width {
+  max-width: var(--wrapper-max-width);
+  min-width: var(--wrapper-min-width);
+  margin: 0 auto;
+}
+
+.text_max_width {
+  max-width: 300px;
+}
