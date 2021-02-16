@@ -6,15 +6,10 @@
   box-sizing: border-box;
 }
 
-@font-face {
-  font-family: Gilroy Light;
-  src: url('../assets/fonts/Gilroy-Light 300.otf');
-}
-
 html {
   -webkit-text-size-adjust: var(--full);
   scroll-behavior: smooth;
-  font-family: Gilroy Light;
+  font-family: 'ABeeZee', sans-serif;
 }
 
 body {
@@ -25,7 +20,7 @@ body {
   width: var(--full);
   height: var(--full);
   background: var(--black);
-  color: var(--primary-color);
+  color: var(--white);
   overflow-x: hidden;
 }
 
@@ -71,17 +66,33 @@ input {
   appearance: none;
   width: var(--full);
   font-size: 1rem;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
   font-family: inherit;
   outline: none;
+  background: transparent;
   color: inherit;
   border: 1.5px solid var(--fade);
   border-radius: var(--border-radius-mini);
   outline-offset: -2px;
 
+  &[type='search'] {
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+      display: none;
+    }
+  }
+
   &:focus {
     border: 1.5px solid var(--primary-color);
-    box-shadow: 0 0 0 5px var(--primary-color-lighter);
+    box-shadow: 0 0 0 3px var(--primary-color-lighter);
+    background: var(--white);
+    color: var(--black);
+
+    &::placeholder {
+      color: var(--black);
+    }
   }
 }
 

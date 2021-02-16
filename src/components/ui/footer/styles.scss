@@ -1,0 +1,13 @@
+.footer {
+  width: var(--full);
+  border-top: 1px solid var(--fade);
+  height: 45px;
+
+  &__wrapper {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    height: var(--full);
+  }
+}

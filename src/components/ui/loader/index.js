@@ -8,7 +8,7 @@ import './styles.scss';
 const Loader = () => {
   return (
     <div className="app_loader">
-      <svg viewBox="0 0 248.16 57.6" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 250.16 57.6" xmlns="http://www.w3.org/2000/svg">
         <g
           id="svgGroup"
           strokeLinecap="round"

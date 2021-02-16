@@ -1,0 +1,60 @@
+.header {
+  width: var(--full);
+  border-bottom: 1.5px solid var(--fade);
+  height: 60px;
+
+  nav {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // padding: 7px 0;
+    height: var(--full);
+
+    .shoppies_logo {
+      width: 130px;
+      height: 58px;
+
+      > img {
+        width: var(--full);
+        height: var(--full);
+      }
+    }
+
+    .hamburger_btn {
+      display: none;
+
+      > button {
+        background: transparent;
+        padding: 0;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 0;
+        cursor: pointer;
+
+        svg {
+          width: var(--full);
+          height: var(--full);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  .header {
+    nav {
+      .shoppies_logo {
+        width: 115px;
+      }
+
+      .hamburger_btn {
+        display: block;
+      }
+    }
+  }
+}
