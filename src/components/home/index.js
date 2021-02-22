@@ -1,11 +1,16 @@
 import React from 'react';
 
-import Container from './homeContainer';
+import HomeWrapper from './homeWrapper';
 
-const home = ({ isOpen }) => {
+const home = ({ isOpen, nominations, handleNominate, handleDelete }) => {
   return (
     <div className="_max_width">
-      <Container isOpen={isOpen} />
+      <HomeWrapper
+        isOpen={isOpen}
+        nominations={nominations}
+        handleNominate={handleNominate}
+        handleDelete={handleDelete}
+      />
     </div>
   );
 };

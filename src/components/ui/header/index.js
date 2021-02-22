@@ -5,14 +5,18 @@ import { ArchiveSvg } from '../../../assets/icons';
 
 import './styles.scss';
 
-const header = ({ clicked }) => {
+const header = ({ clicked, isSidebar, nominations }) => {
   return (
-    <header className="header _max_width">
+    <header className={`header _max_width ${isSidebar ? 'fixed' : ''}`}>
       <nav className="nav">
         <div className="hamburger_btn">
           <button aria-label="menu button" onClick={clicked}>
             <ArchiveSvg />
           </button>
+
+          {nominations && nominations.length > 0 && (
+            <span>{nominations.length}</span>
+          )}
         </div>
 
         <div className="shoppies_logo">

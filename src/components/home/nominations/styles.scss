@@ -9,12 +9,120 @@
       text-transform: uppercase;
     }
   }
+
+  &__list {
+    width: var(--full);
+    margin: 32px 0;
+
+    .nominations_count {
+      margin-bottom: 32px;
+
+      p {
+        // max-width: 130px;
+
+        > span {
+          color: var(--primary-color);
+          font-weight: bold;
+        }
+      }
+    }
+
+    .nominations_empty {
+      color: var(--fade);
+      font-weight: bold;
+      line-height: 1.6;
+    }
+
+    > ul {
+      display: flex;
+      flex-direction: column;
+
+      li {
+        display: flex;
+        flex-direction: column;
+        max-height: 500px;
+        justify-content: space-between;
+        margin-bottom: 48px;
+        max-width: 200px;
+
+        .nomination_item_poster {
+          width: var(--full);
+          height: 250px;
+          display: block;
+          margin-bottom: 32px;
+
+          > img {
+            width: var(--full);
+            height: var(--full);
+            object-fit: cover;
+            display: block;
+          }
+        }
+
+        .nomination_item_title {
+          margin-bottom: 16px;
+        }
+
+        .nomination_item_year,
+        .nomination_item_title {
+          > span {
+            line-height: 1.6;
+          }
+        }
+
+        .nomination_delete_btn {
+          width: var(--full);
+          margin-top: 20px;
+
+          > button {
+            padding: 16px 0;
+            width: var(--full);
+            height: var(--full);
+            background: var(--danger);
+            border: 0;
+            border-radius: var(--border-radius-mini);
+            color: var(--white);
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: 750px) {
   .nominations {
     &__header {
       text-align: center;
+    }
+
+    &__list {
+      .nominations_count,
+      .nominations_empty {
+        text-align: center;
+      }
+
+      // .nominations_count {
+      //   > p {
+      //     max-width: unset;
+      //   }
+      // }
+
+      > ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+
+        li {
+          margin-left: auto;
+          margin-right: auto;
+          // max-width: 250px;
+
+          .nomination_item_title {
+            margin-top: auto;
+          }
+        }
+      }
     }
   }
 }

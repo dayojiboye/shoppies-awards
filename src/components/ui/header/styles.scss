@@ -2,6 +2,7 @@
   width: var(--full);
   border-bottom: 1.5px solid var(--fade);
   height: 60px;
+  background: var(--black);
 
   nav {
     width: 90%;
@@ -24,6 +25,7 @@
 
     .hamburger_btn {
       display: none;
+      position: relative;
 
       > button {
         background: transparent;
@@ -41,12 +43,36 @@
           height: var(--full);
         }
       }
+
+      > span {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--primary-color);
+        display: block;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        position: absolute;
+        top: 0;
+        right: -10px;
+      }
     }
   }
 }
 
 @media (max-width: 750px) {
   .header {
+    &.fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+    }
+
     nav {
       .shoppies_logo {
         width: 115px;

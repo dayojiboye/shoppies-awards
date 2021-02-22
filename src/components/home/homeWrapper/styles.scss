@@ -1,22 +1,25 @@
 .home_container {
   width: 90%;
   display: flex;
-  flex-wrap: nowrap;
+  // flex-wrap: nowrap;
   margin: 0 auto;
   min-height: calc(100vh - 105px);
+  // position: relative;
 
   &__nominations {
     flex: 1;
     border-right: 1px solid var(--fade);
     padding: 45px 20px 32px 0px;
+    // width: 40%;
+    // background: red;
+    overflow-y: auto;
   }
 
   &__movies {
     width: 73%;
     max-width: 900px;
-    flex-shrink: 0;
     padding: 32px 0 32px 30px;
-    position: relative;
+    // border-left: 1px solid var(--fade);
 
     .text_lead {
       margin-bottom: 35px;
@@ -24,6 +27,29 @@
       h1 {
         font-size: 1.5rem;
         text-transform: capitalize;
+      }
+    }
+
+    .nomination_limit_exceeded {
+      margin-bottom: 35px;
+      display: flex;
+      align-items: center;
+      background: var(--danger);
+      max-width: 500px;
+      justify-content: space-evenly;
+      height: 80px;
+      font-weight: bold;
+      padding: 0 10px;
+
+      &::before {
+        content: '';
+        background: url('../../../assets/icons/exclamation-mark.svg') no-repeat
+          center;
+        background-size: cover;
+        width: 25px;
+        height: 25px;
+        flex-shrink: 0;
+        margin-right: 16px;
       }
     }
 
@@ -55,14 +81,23 @@
   .home_container {
     &__nominations {
       background: var(--black);
-      position: absolute;
+      position: fixed;
       left: -100%;
+      bottom: 0;
+      top: 60px;
       width: var(--full);
-      height: 100vh;
+      max-height: none;
       padding: 32px 10px;
       transition: all 0.4s ease-in-out;
       z-index: 100;
       overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
 
       &._show {
         left: 0;
@@ -75,6 +110,11 @@
 
       .text_lead {
         text-align: center;
+      }
+
+      .nomination_limit_exceeded {
+        margin-left: auto;
+        margin-right: auto;
       }
     }
   }

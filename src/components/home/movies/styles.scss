@@ -29,7 +29,6 @@
         width: var(--full);
         display: block;
         margin-bottom: 32px;
-        position: relative;
 
         img {
           width: var(--full);
@@ -53,7 +52,6 @@
 
         button {
           padding: 16px 0;
-          display: block;
           width: var(--full);
           height: var(--full);
           background: var(--primary-color);
@@ -63,10 +61,29 @@
           font-weight: bold;
           cursor: pointer;
           transition: all 0.4s ease-in-out;
-          // font-size: 14px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
 
           &:hover {
             background: var(--primary-color-lighter);
+          }
+
+          &:disabled {
+            background: var(--fade);
+            cursor: not-allowed;
+          }
+
+          &._nominated {
+            &::after {
+              content: '';
+              width: 15px;
+              height: 15px;
+              background: url('../../../assets/icons/check.svg') no-repeat;
+              background-size: cover;
+              flex-shrink: 0;
+              margin-left: 10px;
+            }
           }
         }
       }

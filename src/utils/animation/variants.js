@@ -5,7 +5,7 @@ export const PATH_VARIANTS = {
   visible: {
     pathLength: 1,
     transition: {
-      duration: 7,
+      duration: 5,
       ease: 'easeInOut',
     },
   },

@@ -2,23 +2,35 @@ import React from 'react';
 
 import './styles.scss';
 
-const movies = ({ movies, inputValue }) => {
+const Movies = ({ inputValue, movies, nominate, nominations }) => {
+  const disableButton = (movieId) => {
+    const movieExists = nominations.some((item) => {
+      return item.id === movieId;
+    });
+
+    return movieExists;
+  };
+
+  const checkNominationLimit = () => {
+    if (nominations.length === 5) return true;
+  };
+
   return (
     <div className="movies">
       {movies && movies.length > 0 && (
         <div className="movies__result_text">
           <p>
             <span>{movies.length}</span> results for keyword{' '}
-            <span>{inputValue}</span> found
+            <span>"{inputValue}"</span> found
           </p>
         </div>
       )}
 
       <ul>
         {movies &&
-          movies.map((item) => {
+          movies.map((item, index) => {
             return (
-              <li key={item.imdbID}>
+              <li key={index}>
                 <div className="movie_poster">
                   <img
                     src={item.Poster}
@@ -38,7 +50,29 @@ const movies = ({ movies, inputValue }) => {
                 </div>
 
                 <div className="nominate_btn">
-                  <button>Nominate</button>
+                  <button
+                    disabled={
+                      disableButton(item.imdbID) || checkNominationLimit()
+                    }
+                    className={`${
+                      disableButton(item.imdbID) ? '_nominated' : ''
+                    }`}
+                    data-nominated="false"
+                    onClick={() => {
+                      nominate({
+                        title: item.Title,
+                        imgUrl: item.Poster,
+                        year: item.Year,
+                        id: item.imdbID,
+                      });
+                    }}
+                  >
+                    {checkNominationLimit() && !disableButton(item.imdbID)
+                      ? 'Limit Exceeded'
+                      : disableButton(item.imdbID)
+                      ? 'Nominated'
+                      : 'Nominate'}
+                  </button>
                 </div>
               </li>
             );
@@ -48,4 +82,4 @@ const movies = ({ movies, inputValue }) => {
   );
 };
 
-export default movies;
+export default Movies;

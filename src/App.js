@@ -4,17 +4,9 @@ import { AnimatePresence } from 'framer-motion';
 
 import Loader from './components/ui/loader';
 
-// context
-
-import Store from './context';
-
 // layout
 
 import Layout from './layout';
-
-// pages
-
-import { HomePage } from './pages/home';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -37,15 +29,11 @@ function App() {
   return (
     <>
       <AnimatePresence exitBeforeEnter>
-        <Store>
-          {loading && <Loader />}
+        {loading && <Loader />}
 
-          {!loading && (
-            <Layout toggleSidebar={handleSidebarToggle}>
-              <HomePage isOpen={showSidebar} />
-            </Layout>
-          )}
-        </Store>
+        {!loading && (
+          <Layout toggleSidebar={handleSidebarToggle} isSidebar={showSidebar} />
+        )}
       </AnimatePresence>
     </>
   );
