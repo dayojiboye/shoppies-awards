@@ -1,17 +1,13 @@
 .home_container {
   width: 90%;
   display: flex;
-  // flex-wrap: nowrap;
   margin: 0 auto;
   min-height: calc(100vh - 105px);
-  // position: relative;
 
   &__nominations {
     flex: 1;
     border-right: 1px solid var(--fade);
     padding: 45px 20px 32px 0px;
-    // width: 40%;
-    // background: red;
     overflow-y: auto;
   }
 
@@ -19,7 +15,6 @@
     width: 73%;
     max-width: 900px;
     padding: 32px 0 32px 30px;
-    // border-left: 1px solid var(--fade);
 
     .text_lead {
       margin-bottom: 35px;

@@ -32,7 +32,7 @@ const Layout = ({ toggleSidebar, isSidebar }) => {
         isSidebar={isSidebar}
         nominations={nominations}
       />
-      <main className="main">
+      <main className={`main ${isSidebar ? '_push' : ''}`}>
         <HomePage
           isOpen={isSidebar}
           nominations={nominations}

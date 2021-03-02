@@ -1,3 +1,9 @@
 .main {
   width: var(--full);
+
+  @media (max-width: 750px) {
+    &._push {
+      margin-top: 60px;
+    }
+  }
 }
